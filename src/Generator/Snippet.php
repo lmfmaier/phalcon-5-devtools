@@ -169,7 +169,7 @@ EOD;
      * @var %s%s%s
      * @Column(column="%s", type="%s"%s, nullable=%s)
      */
-    %s %s \$%s %s;
+    %s %s \$%s%s;
 EOD;
 
             return PHP_EOL.sprintf($templateAttributes,
@@ -186,10 +186,10 @@ EOD;
      *
      * @var %s
      */
-    %s %s \$%s;
+    %s %s \$%s%s;
 EOD;
 
-            return PHP_EOL.sprintf($templateAttributes, $phpTypedProp, $visibility, $phpTypedProp, $fieldName).PHP_EOL;
+            return PHP_EOL.sprintf($templateAttributes, $phpTypedProp, $visibility, $phpTypedProp, $fieldName, ($field->getName()==='id' ? ' = null' : '')).PHP_EOL;
         }
     }
 
