@@ -179,7 +179,7 @@ EOD;
                 $field->getName(),
                 $type,
                 $field->getSize() ? ', length=' . $field->getSize() : '',
-                $field->isNotNull() ? 'false' : 'true', $visibility, $phpTypedProp, $fieldName, ($field->getName()==='id' ? ' = null' : '')).PHP_EOL;
+                $field->isNotNull() ? 'false' : 'true', $visibility, $phpTypedProp, $fieldName, ' = null').PHP_EOL;
         } else {
             $templateAttributes = <<<EOD
     /**
@@ -189,7 +189,7 @@ EOD;
     %s %s \$%s%s;
 EOD;
 
-            return PHP_EOL.sprintf($templateAttributes, $phpTypedProp, $visibility, $phpTypedProp, $fieldName, ($field->getName()==='id' ? ' = null' : '')).PHP_EOL;
+            return PHP_EOL.sprintf($templateAttributes, $phpTypedProp, $visibility, $phpTypedProp, $fieldName, ' = null').PHP_EOL;
         }
     }
 
