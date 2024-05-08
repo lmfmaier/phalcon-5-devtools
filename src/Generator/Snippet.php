@@ -189,7 +189,7 @@ EOD;
     %s %s \$%s%s;
 EOD;
 
-            return PHP_EOL.sprintf($templateAttributes, $phpTypedProp, $visibility, $phpTypedProp, $fieldName, ($field->getName()==='id' ? ' = null' : '')).PHP_EOL;
+            return PHP_EOL.sprintf($templateAttributes, $phpTypedProp, $visibility, $phpTypedProp, $fieldName, ' = '. (($type === 'int' || $type === 'float') && $field->getName() !== 'id' ? '0' :'null')).PHP_EOL;
         }
     }
 
